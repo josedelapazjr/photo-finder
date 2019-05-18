@@ -1,13 +1,12 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import PhotoList from './components/PhotoList';
+import PhotoSearch from './components/PhotoSearch';
 
 function App() {
   return (
     <div className="App">
-      Welcome to Photo Search !
-      <PhotoList />
+      <PhotoSearch />
     </div>
   );
 }

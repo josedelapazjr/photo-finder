@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import injectSheet from 'react-jss';
-import { fetchPhotos } from './actions';
+import { fetchFeaturedPhotos } from './actions';
 import Photo from './Photo';
 import styles from './styles';
 
 class PhotoList extends Component {
   componentDidMount = () => {
-    this.props.handleFetchPhotos('food');
+    this.props.handleFetchFeaturedPhotos();
   }
 
   renderPhoto = () => {
@@ -31,7 +31,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  handleFetchPhotos: (searchString) => dispatch(fetchPhotos(searchString)),
+  handleFetchFeaturedPhotos: () => dispatch(fetchFeaturedPhotos()),
 })
 
 export default injectSheet(styles)(connect(mapStateToProps,mapDispatchToProps)(PhotoList));

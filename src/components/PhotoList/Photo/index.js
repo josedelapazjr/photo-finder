@@ -5,7 +5,7 @@ import styles from './styles';
 const Photo = ({photo, classes}) => (
   <div className={classes.root}>
     {photo 
-      ? <img src={photo.urls.thumb} alt="Italian Trulli"></img>
+      ? <img src={photo.urls ? photo.urls.thumb : photo.cover_photo.urls.thumb} alt="Italian Trulli"></img>
       : null
     }
   </div>
