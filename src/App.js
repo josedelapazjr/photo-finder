@@ -1,13 +1,13 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Test from './Test';
+import PhotoList from './PhotoList';
 
 function App() {
   return (
     <div className="App">
-      Welcome to Coupon Management System!
-      <Test />
+      Welcome to Photo Search !
+      <PhotoList />
     </div>
   );
 }

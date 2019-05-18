@@ -17,9 +17,8 @@
 
 import queryString from 'query-string';
 import { getHeaders } from '../api/header'; 
-import {HTTPMethod} from '../api/./ApiCore';
+import {HTTPMethod} from '../api/ApiCore';
 export const fetchPhotos = (searchString) => (dispatch) => {
-  console.log('calling action fetchPhotos!');
   const URL = 'https://api.unsplash.com';
   const query = queryString.stringify({
     query: searchString,
@@ -33,6 +32,7 @@ export const fetchPhotos = (searchString) => (dispatch) => {
     .then(response => response.json())
     .then(data => {
       console.log('result: ', data.results);
+      dispatch(fetchPhotosSuccess(data.results));
       // dispatch success
     })
     .catch((e) => {
@@ -40,25 +40,7 @@ export const fetchPhotos = (searchString) => (dispatch) => {
     });
 };
 
-
-
-// import { getHeaders } from './header'; 
-// export const HTTPMethod = {
-//   GET: 'GET',
-//   PUT: 'PUT',
-//   POST: 'POST',
-//   DELETE: 'DELETE',
-// };
-
-// const URL = 'https://api.unsplash.com';
-
-// class ApiCore {
-//   static request = (method, endpoint) => {
-//     return fetch(endpoint) , {
-//       method,
-//       headers: getHeaders(),
-//     };
-//   } 
-// }
-
-// export default ApiCore;
+export const fetchPhotosSuccess = (data) => ({
+  type: 'FETCH_PHOTOS_SUCCESS',
+  payload: data
+});
