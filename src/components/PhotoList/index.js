@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import injectSheet from 'react-jss';
 import { fetchPhotos } from './actions';
-// import PhotoList from './PhotoList';
+import Photo from './Photo';
+import styles from './styles';
 
 class PhotoList extends Component {
   componentDidMount = () => {
@@ -11,14 +13,13 @@ class PhotoList extends Component {
   renderPhoto = () => {
     const {photoList} = this.props;
     return photoList.map(photo => {
-      return <div>
-        <img src={photo.urls.thumb} alt="Italian Trulli"></img>
-      </div>
+      return <Photo key={photo.id} photo={photo}/>
     })
   }
   render() {
+    const {classes} = this.props;
     return(
-      <div>
+      <div className={classes.root}>
       {this.renderPhoto()}
       </div>
     );
@@ -26,8 +27,6 @@ class PhotoList extends Component {
 };
 
 const mapStateToProps = state => ({
-  // squaresData: state.squareReducers.squaresData,
-  // isComplete: state.squareReducers.isComplete,
   photoList: state.testReducers.photoList,
 });
 
@@ -35,4 +34,4 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   handleFetchPhotos: (searchString) => dispatch(fetchPhotos(searchString)),
 })
 
-export default connect(mapStateToProps,mapDispatchToProps)(PhotoList);
+export default injectSheet(styles)(connect(mapStateToProps,mapDispatchToProps)(PhotoList));

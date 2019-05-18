@@ -1,5 +1,5 @@
 import {combineReducers} from 'redux';
-import testReducers from './Test/reducers';
+import testReducers from './components/PhotoList/reducers';
 export default combineReducers({
   testReducers
 });

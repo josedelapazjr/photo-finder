@@ -16,8 +16,8 @@
 
 
 import queryString from 'query-string';
-import { getHeaders } from '../api/header'; 
-import {HTTPMethod} from '../api/ApiCore';
+import { getHeaders } from '../../api/header'; 
+import {HTTPMethod} from '../../api/ApiCore';
 export const fetchPhotos = (searchString) => (dispatch) => {
   const URL = 'https://api.unsplash.com';
   const query = queryString.stringify({
