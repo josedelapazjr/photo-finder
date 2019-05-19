@@ -69,3 +69,8 @@ export const fetchPhotosSuccess = (data) => ({
   type: 'FETCH_PHOTOS_SUCCESS',
   payload: data
 });
+
+export const setSelectedPhoto = (photoId) => ({
+  type: 'SET_SELECTED_PHOTO',
+  payload: photoId
+});

@@ -1,9 +1,10 @@
 const defaultSate = {
   photoList: [],
+  selectedPhoto: null,
   isLoading: false,
 }
 export default function testReducers(state=defaultSate,action) {
-    console.log('testReducers');
+    console.log('testReducers:action: ', action);
     switch(action.type) {
         case 'FETCH_PHOTOS': {
           return {
@@ -23,6 +24,13 @@ export default function testReducers(state=defaultSate,action) {
           return {
             ...state,
             isLoading: false,
+          }
+        }
+        case 'SET_SELECTED_PHOTO': {
+          const selectedPhoto = state.photoList.find(photo => photo.id == action.payload);
+          return {
+            ...state,
+            selectedPhoto: selectedPhoto,
           }
         }
         default:
