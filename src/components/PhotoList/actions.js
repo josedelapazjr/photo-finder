@@ -1,39 +1,9 @@
-// import api from '../api/v1';
-// import APIUtility from '../api/v1';
-// export const fetchPhotos = (searchString) => (dispatch) => {
-//   console.log('calling action fetchPhotos!');
-//   console.log('api: ', api);
-//   return api.searchPhotos(searchString)
-//     .then(response => response.json())
-//     .then(data => {
-//       console.log('data: ', data.result);
-//       // dispatch success
-//     })
-//     .catch((e) => {
-//       // dispatch error
-//     });
-// };
-
-
-import queryString from 'query-string';
-import { getHeaders } from '../../api/header'; 
-import {HTTPMethod} from '../../api/ApiCore';
+import apiV1 from '../../api/v1';
 
 export const fetchPhotos = (searchString) => (dispatch) => {
-  const URL = 'https://api.unsplash.com';
-  const query = queryString.stringify({
-    query: searchString,
-    page: 1,
-    per_page: 30,
-  });
-  const apiURL = `${URL}/search/photos?${query}`;
-  return fetch(apiURL , {
-      method: HTTPMethod.GET,
-      headers: getHeaders()
-    })
-    .then(response => response.json())
+  dispatch({type: 'FETCH_PHOTOS'});
+  return apiV1.searchPhotos(searchString)
     .then(data => {
-      console.log('result: ', data.results);
       dispatch(fetchPhotosSuccess(data.results));
     })
     .catch((e) => {
@@ -41,26 +11,15 @@ export const fetchPhotos = (searchString) => (dispatch) => {
     });
 };
 
+
 export const fetchFeaturedPhotos = () => (dispatch) => {
-  const URL = 'https://api.unsplash.com';
-  const query = queryString.stringify({
-    page: 1,
-    per_page: 30,
-  });
-  const apiURL = `${URL}/collections/featured?${query}`;
   dispatch({type: 'FETCH_PHOTOS'});
-  return fetch(apiURL , {
-      method: HTTPMethod.GET,
-      headers: getHeaders()
-    })
-    .then(response => response.json())
+  return apiV1.getFeaturedPhotos()
     .then(data => {
-      console.log('data: ', data);
-      console.log('result: ', data.results);
-      dispatch(fetchPhotosSuccess(data.results ? data.results : data));
+      dispatch(fetchPhotosSuccess(data));
     })
     .catch((e) => {
-      // dispatch error
+      dispatch(fetchPhotosError());
     });
 };
 

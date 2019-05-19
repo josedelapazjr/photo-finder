@@ -1,21 +1,13 @@
 import { getHeaders } from './header'; 
-export const HTTPMethod = {
-  GET: 'GET',
-  PUT: 'PUT',
-  POST: 'POST',
-  DELETE: 'DELETE',
-};
-
-const URL = 'https://api.unsplash.com';
+import {URL} from './constants';
 
 class ApiCore {
   static request = (method, endpoint) => {
-    console.log('method: ', method);
-    console.log('endpoint: ', endpoint);
-    return fetch(endpoint) , {
+    return fetch(`${URL}${endpoint}` , {
       method,
       headers: getHeaders(),
-    };
+    })
+    .then(response => response.json());
   } 
 }
 
