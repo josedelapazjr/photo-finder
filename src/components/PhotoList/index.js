@@ -53,12 +53,14 @@ class PhotoList extends Component {
       <GridList cellHeight={180} className={classes.gridList} cols={isMobile ? 1 : 5}>
         {this.renderPhoto(isMobile)}
       </GridList>
-      <PhotoDetails 
+      {selectedPhoto ?
+        <PhotoDetails 
         isOpen={showPhotoDetails} 
         handleClose={this.handleClosePhotoDetails}
         photo={selectedPhoto}
         isMobile={isMobile}
       />
+      : null }
       </div>
     );
   }
