@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders Photo component correctly 1`] = `
+<div
+  className="Photo-root-0-1-1"
+  onClick={[Function]}
+/>
+`;
