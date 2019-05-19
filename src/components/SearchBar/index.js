@@ -25,9 +25,6 @@ class SearchBar extends Component {
     const {handleFetchPhotos} = this.props;
     if(searchString.length > 0) {
       handleFetchPhotos(searchString);
-      this.setState({
-        searchString: '', 
-      });
     }
   }
 
