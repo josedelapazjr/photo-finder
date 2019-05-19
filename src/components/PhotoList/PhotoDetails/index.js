@@ -17,7 +17,7 @@ const PhotoDetails = ({ photo, isOpen, handleClose, isMobile, classes }) => (
     fullScreen={isMobile}
     fullWidth={isMobile}
   >
-    <DialogTitle>{photo.title ? photo.title : photo.description}</DialogTitle>
+    <DialogTitle>{photo.title ? photo.title : photo.alt_description}</DialogTitle>
     <DialogContent>
       <img src={photo.urls ? photo.urls.small : photo.cover_photo.urls.small}></img>
       <div className={classes.root}>

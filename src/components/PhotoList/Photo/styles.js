@@ -1,5 +1,6 @@
 export default {
   root: {
-    padding: 10
+    padding: 10,
+    cursor: 'pointer',
   }
 }
