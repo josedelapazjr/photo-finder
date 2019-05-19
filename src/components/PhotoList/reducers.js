@@ -33,6 +33,12 @@ export default function testReducers(state=defaultSate,action) {
             selectedPhoto: selectedPhoto,
           }
         }
+        case 'SET_RANDOM_PHOTO': {
+          return {
+            ...state,
+            randomPhoto: action.payload,
+          }
+        }
         default:
             return state;
     };
