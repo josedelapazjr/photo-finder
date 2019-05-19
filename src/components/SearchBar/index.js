@@ -35,9 +35,8 @@ class SearchBar extends Component {
   };
 
   render() {
-    const { classes, backgroundPhoto } = this.props;
+    const { classes } = this.props;
     const {searchString} = this.state;
-    console.log('SearchBar:backgroundPhoto ', backgroundPhoto);
     return(
       <div className={classes.root}>
         <div>

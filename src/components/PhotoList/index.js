@@ -28,7 +28,6 @@ class PhotoList extends Component {
     })
   }
 
-
   componentDidMount = () => {
     this.props.handleFetchFeaturedPhotos();
   }
@@ -47,7 +46,6 @@ class PhotoList extends Component {
     const {classes, selectedPhoto, width} = this.props;
     const {showPhotoDetails} = this.state;
     const isMobile = !isWidthUp('sm', width);
-    console.log('PhotoList:selectedPhoto ', selectedPhoto);
     return(
       <div className={classes.root}>
       <GridList cellHeight={240} className={classes.gridList} cols={isMobile ? 1 : 5}>
