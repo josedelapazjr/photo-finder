@@ -1,3 +1,4 @@
+import {isWidthUp} from '@material-ui/core/withWidth';
 
 export default {
   root: {
@@ -13,5 +14,11 @@ export default {
   },
   label: {
     marginLeft: 4
+  },
+  dialogContent: ({width}) => {
+    const isMobile = !isWidthUp('sm', width);
+    return{
+      padding: isMobile ? 0 : null,
+    }
   }
 };

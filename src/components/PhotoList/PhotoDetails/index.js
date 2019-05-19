@@ -5,6 +5,7 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Button from '@material-ui/core/Button';
 import ThumbUp from '@material-ui/icons/ThumbUp';
+import withWidth from '@material-ui/core/withWidth';
 import injectSheet from 'react-jss';
 import styles from './styles';
 
@@ -17,7 +18,7 @@ const PhotoDetails = ({ photo, isOpen, handleClose, isMobile, classes }) => (
     fullWidth={isMobile}
   >
     <DialogTitle>{photo.title ? photo.title : photo.alt_description}</DialogTitle>
-    <DialogContent>
+    <DialogContent className={classes.dialogContent}>
       <img src={photo.urls ? photo.urls.small : photo.cover_photo.urls.small}></img>
       <div className={classes.root}>
         <div className={classes.detail}>
@@ -42,4 +43,4 @@ const PhotoDetails = ({ photo, isOpen, handleClose, isMobile, classes }) => (
   </Dialog>
 );
 
-export default injectSheet(styles)(PhotoDetails);
+export default withWidth()(injectSheet(styles)(PhotoDetails));
