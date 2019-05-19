@@ -35,10 +35,9 @@ export const fetchPhotos = (searchString) => (dispatch) => {
     .then(data => {
       console.log('result: ', data.results);
       dispatch(fetchPhotosSuccess(data.results));
-      // dispatch success
     })
     .catch((e) => {
-      // dispatch error
+      dispatch(fetchPhotosError());
     });
 };
 
@@ -68,6 +67,10 @@ export const fetchFeaturedPhotos = () => (dispatch) => {
 export const fetchPhotosSuccess = (data) => ({
   type: 'FETCH_PHOTOS_SUCCESS',
   payload: data
+});
+
+export const fetchPhotosError = () => ({
+  type: 'FETCH_PHOTOS_ERROR'
 });
 
 export const setSelectedPhoto = (photoId) => ({

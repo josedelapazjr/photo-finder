@@ -13,7 +13,6 @@ export default function testReducers(state=defaultSate,action) {
           }
         }
         case 'FETCH_PHOTOS_SUCCESS': {
-          console.log('FETCH_PHOTOS_SUCCESS: ', action);
           return {
             ...state,
             photoList: action.payload,
