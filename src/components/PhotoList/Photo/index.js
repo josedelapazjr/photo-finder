@@ -5,7 +5,8 @@ import styles from './styles';
 const Photo = ({photo, classes, handleViewDetails}) => (
   <div className={classes.root} onClick={() => handleViewDetails(photo.id)}>
     {photo 
-      ? <img src={photo.urls ? photo.urls.thumb : photo.cover_photo.urls.thumb} title={photo.title}></img>
+      // ? <img src={photo.urls ? photo.urls.thumb : photo.cover_photo.urls.thumb} title={photo.title}></img>
+      ? <img src={photo.urls ? photo.urls.small : photo.cover_photo.urls.small} title={photo.title}></img>
       : null
     }
   </div>

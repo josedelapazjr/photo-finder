@@ -1,5 +1,5 @@
 export default {
   root: {
-    // marginTop: 20,
+    padding: 10
   }
 }

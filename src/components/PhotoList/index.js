@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import injectSheet from 'react-jss';
+import GridList from '@material-ui/core/GridList';
+import GridListTile from '@material-ui/core/GridListTile';
+import withWidth, { isWidthUp} from '@material-ui/core/withWidth';
 import { fetchFeaturedPhotos, setSelectedPhoto } from './actions';
 import { getPhotoList, getSelectedPhoto } from './selectors';
 import Photo from './Photo';
@@ -30,23 +33,31 @@ class PhotoList extends Component {
     this.props.handleFetchFeaturedPhotos();
   }
 
-  renderPhoto = () => {
+  renderPhoto = (isMobile) => {
     const {photoList} = this.props;
     return photoList.map(photo => {
-      return <Photo key={photo.id} photo={photo} handleViewDetails={this.handleOpenPhotoDetails}/>
+      return(
+        <GridListTile >
+          <Photo key={photo.id} photo={photo} handleViewDetails={this.handleOpenPhotoDetails}/>
+        </GridListTile>  
+      ); 
     })
   }
   render() {
-    const {classes, selectedPhoto} = this.props;
+    const {classes, selectedPhoto, width} = this.props;
     const {showPhotoDetails} = this.state;
+    const isMobile = !isWidthUp('sm', width);
     console.log('PhotoList:selectedPhoto ', selectedPhoto);
     return(
       <div className={classes.root}>
-      {this.renderPhoto()}
+      <GridList cellHeight={180} className={classes.gridList} cols={isMobile ? 1 : 5}>
+        {this.renderPhoto(isMobile)}
+      </GridList>
       <PhotoDetails 
         isOpen={showPhotoDetails} 
         handleClose={this.handleClosePhotoDetails}
         photo={selectedPhoto}
+        isMobile={isMobile}
       />
       </div>
     );
@@ -63,4 +74,4 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   handleSetSelectedPhoto: (photoId) => dispatch(setSelectedPhoto(photoId)),
 })
 
-export default injectSheet(styles)(connect(mapStateToProps,mapDispatchToProps)(PhotoList));
+export default withWidth()(injectSheet(styles)(connect(mapStateToProps,mapDispatchToProps)(PhotoList)));

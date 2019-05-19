@@ -6,14 +6,13 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Button from '@material-ui/core/Button';
 
-const PhotoDetails = ({ photo, isOpen, handleClose }) => (
+const PhotoDetails = ({ photo, isOpen, handleClose, isMobile }) => (
   <Dialog
     open={isOpen}
-    // onClose={handleClose}
     aria-labelledby="alert-dialog-title"
     aria-describedby="alert-dialog-description"
-    // fullScreen
-    // fullWidth
+    fullScreen={isMobile}
+    fullWidth={isMobile}
   >
     <DialogTitle>{photo ? photo.title : 'Photo Details'}</DialogTitle>
     <DialogContent>
