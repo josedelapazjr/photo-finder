@@ -24,10 +24,14 @@ const PhotoDetails = ({ photo, isOpen, handleClose, isMobile, classes }) => (
           <img src={photo.user.profile_image ? photo.user.profile_image.small : null}></img>
           <span className={classes.label}>{photo.user.name}</span>
         </div>
-        <div className={classes.detail}>
-          <ThumbUp />
-          <span className={classes.label}>{photo.likes}</span>
-        </div>
+        {photo.likes 
+          ? <div className={classes.detail}>
+              <ThumbUp />
+              <span className={classes.label}>{photo.likes}</span>
+            </div>  
+          : null
+        }
+        
       </div>
     </DialogContent>
     <DialogActions>

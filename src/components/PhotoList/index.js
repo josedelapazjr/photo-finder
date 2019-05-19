@@ -48,17 +48,18 @@ class PhotoList extends Component {
     const isMobile = !isWidthUp('sm', width);
     return(
       <div className={classes.root}>
-      <GridList cellHeight={240} className={classes.gridList} cols={isMobile ? 1 : 5}>
-        {this.renderPhoto(isMobile)}
-      </GridList>
-      {selectedPhoto ?
-        <PhotoDetails 
-        isOpen={showPhotoDetails} 
-        handleClose={this.handleClosePhotoDetails}
-        photo={selectedPhoto}
-        isMobile={isMobile}
-      />
-      : null }
+        <div className={classes.title}>Available photos</div>
+        <GridList cellHeight={240} className={classes.gridList} cols={isMobile ? 1 : 5}>
+          {this.renderPhoto(isMobile)}
+        </GridList>
+        {selectedPhoto ?
+          <PhotoDetails 
+          isOpen={showPhotoDetails} 
+          handleClose={this.handleClosePhotoDetails}
+          photo={selectedPhoto}
+          isMobile={isMobile}
+        />
+        : null }
       </div>
     );
   }

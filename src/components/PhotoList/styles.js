@@ -7,4 +7,8 @@ export default {
     justifyContent: 'space-around',
     overflow: 'hidden',
   },
+  title: {
+    fontSize: 16,
+    fontWeight: 'bold'
+  }
 };
