@@ -50,7 +50,7 @@ class PhotoList extends Component {
     console.log('PhotoList:selectedPhoto ', selectedPhoto);
     return(
       <div className={classes.root}>
-      <GridList cellHeight={180} className={classes.gridList} cols={isMobile ? 1 : 5}>
+      <GridList cellHeight={240} className={classes.gridList} cols={isMobile ? 1 : 5}>
         {this.renderPhoto(isMobile)}
       </GridList>
       {selectedPhoto ?

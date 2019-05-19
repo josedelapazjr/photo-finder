@@ -49,6 +49,7 @@ export const fetchFeaturedPhotos = () => (dispatch) => {
     per_page: 30,
   });
   const apiURL = `${URL}/collections/featured?${query}`;
+  dispatch({type: 'FETCH_PHOTOS'});
   return fetch(apiURL , {
       method: HTTPMethod.GET,
       headers: getHeaders()
@@ -58,7 +59,6 @@ export const fetchFeaturedPhotos = () => (dispatch) => {
       console.log('data: ', data);
       console.log('result: ', data.results);
       dispatch(fetchPhotosSuccess(data.results ? data.results : data));
-      // dispatch success
     })
     .catch((e) => {
       // dispatch error

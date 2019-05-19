@@ -5,7 +5,7 @@ export default {
       display: 'flex',
       flexDirection: 'column',
       justifyContent: 'center',
-      minHeight: 300,
+      minHeight: 200,
       backgroundColor: 'lightblue',
     }
   },

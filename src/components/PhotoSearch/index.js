@@ -1,12 +1,13 @@
 import React from 'react';
 import PhotoList from '../PhotoList';
 import SearchBar from '../SearchBar';
+import Header from '../Header';
 
 const PhotoSearch = () => (
   <div>
-    Welcome to Photo Search !
-      <SearchBar />
-      <PhotoList />
+    <Header />
+    <SearchBar />
+    <PhotoList />
   </div>
 );
 
