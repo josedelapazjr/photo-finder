@@ -15,6 +15,9 @@ export default {
   },
   text: {
     minWidth: 300
+  },
+  button: {
+    marginTop: 10,
   }
 }
 

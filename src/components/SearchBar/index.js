@@ -8,17 +8,12 @@ import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import SearchIcon from '@material-ui/icons/Search';
 import styles from './styles';
-import { fetchPhotos, fetchRandomPhoto } from '../PhotoList/actions';
-import { getRandomPhoto } from './selectors';
+import { fetchPhotos } from '../PhotoList/actions';
 
 class SearchBar extends Component {
 
   state = {
     searchString: '',
-  }
-
-  componentDidMount = () => {
-    this.props.handleFetchRandomPhoto();
   }
 
   handleTextChange = (event) => {
@@ -62,9 +57,11 @@ class SearchBar extends Component {
             className={classes.text}
             onKeyPress={this.handleOnKeyPress}
           /> 
-          <IconButton onClick={this.handleSearchButton}>
-            <SearchIcon />
-          </IconButton>
+          <div className={classes.button}>
+            <IconButton onClick={this.handleSearchButton}>
+              <SearchIcon />
+            </IconButton>
+          </div>
         </div>  
         
       </div>
@@ -73,12 +70,10 @@ class SearchBar extends Component {
 }
 
 const mapStateToProps = state => ({
-  backgroundPhoto: getRandomPhoto(state),
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
   handleFetchPhotos: (searchString) => dispatch(fetchPhotos(searchString)),
-  handleFetchRandomPhoto: () => dispatch(fetchRandomPhoto()),
 })
 
 export default injectSheet(styles)(connect(mapStateToProps,mapDispatchToProps) (SearchBar));
