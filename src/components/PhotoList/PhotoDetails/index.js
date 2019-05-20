@@ -5,6 +5,7 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Button from '@material-ui/core/Button';
 import ThumbUp from '@material-ui/icons/ThumbUp';
+import Room from '@material-ui/icons/Room';
 import withWidth from '@material-ui/core/withWidth';
 import injectSheet from 'react-jss';
 import styles from './styles';
@@ -32,7 +33,13 @@ const PhotoDetails = ({ photo, isOpen, handleClose, isMobile, classes }) => (
             </div>  
           : null
         }
-        
+        {photo.user.location 
+          ? <div className={classes.detail}>
+              <Room />
+              <span className={classes.label}>{photo.user.location}</span>
+            </div>
+          : null   
+        }
       </div>
     </DialogContent>
     <DialogActions>
