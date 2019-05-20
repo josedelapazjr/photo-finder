@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { compose } from 'redux';
 import injectSheet from 'react-jss';
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
@@ -75,4 +76,8 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   handleSetSelectedPhoto: (photoId) => dispatch(setSelectedPhoto(photoId)),
 })
 
-export default withWidth()(injectSheet(styles)(connect(mapStateToProps,mapDispatchToProps)(PhotoList)));
+export default compose(
+  withWidth(),
+  injectSheet(styles),
+  connect(mapStateToProps,mapDispatchToProps)
+)(PhotoList);

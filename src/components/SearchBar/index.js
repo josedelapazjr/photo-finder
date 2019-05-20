@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { compose } from 'redux';
 import injectSheet from 'react-jss';
 import { connect } from 'react-redux';
 import TextField from '@material-ui/core/TextField';
@@ -69,4 +70,7 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   handleFetchPhotos: (searchString) => dispatch(fetchPhotos(searchString)),
 })
 
-export default injectSheet(styles)(connect(mapStateToProps,mapDispatchToProps) (SearchBar));
+export default compose(
+  injectSheet(styles),
+  connect(mapStateToProps,mapDispatchToProps),
+)(SearchBar);

@@ -1,4 +1,5 @@
 import React from 'react';
+import { compose } from 'redux';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
@@ -50,4 +51,7 @@ const PhotoDetails = ({ photo, isOpen, handleClose, isMobile, classes }) => (
   </Dialog>
 );
 
-export default withWidth()(injectSheet(styles)(PhotoDetails));
+export default compose(
+  withWidth(),
+  injectSheet(styles),
+)(PhotoDetails);

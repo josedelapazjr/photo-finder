@@ -5,6 +5,6 @@ export default {
       fontFamily: 'Fantasy',
       fontSize: 20,
       fontWeight: 'bold',
-      padding: [20, 0, 20, 20],
+      padding: [20, 0, 0, 20],
   },
 }
