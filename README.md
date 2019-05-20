@@ -25,4 +25,4 @@ This is a sample web application implemented in **React/Redux** that is utilizin
 		
 Note: You can also run the unit test using the command below:
 
-		yarn test
+	yarn test
