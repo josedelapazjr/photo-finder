@@ -1,9 +1,9 @@
-const defaultSate = {
+export const defaultState = {
   photoList: [],
   selectedPhoto: null,
   isLoading: false,
 }
-export default function photoReducers(state=defaultSate,action) {
+export default function photoReducers(state=defaultState,action) {
     switch(action.type) {
         case 'FETCH_PHOTOS': {
           return {
@@ -29,12 +29,6 @@ export default function photoReducers(state=defaultSate,action) {
           return {
             ...state,
             selectedPhoto: selectedPhoto,
-          }
-        }
-        case 'SET_RANDOM_PHOTO': {
-          return {
-            ...state,
-            randomPhoto: action.payload,
           }
         }
         default:
