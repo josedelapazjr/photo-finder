@@ -3,7 +3,7 @@ import ApiCore from './ApiCore';
 import { HTTPMethod } from './constants';
 
 export default {
-    searchPhotos: (searchString) => {
+    getPhotos: (searchString) => {
         const query = queryString.stringify({
           query: searchString,
           page: 1,
