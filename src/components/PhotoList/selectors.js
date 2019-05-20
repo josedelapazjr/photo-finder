@@ -1,7 +1,7 @@
 export const getPhotoList = (state) => {
-  return state.testReducers.photoList;
+  return state.photoReducers.photoList;
 };
 
 export const getSelectedPhoto = (state) => {
-  return state.testReducers.selectedPhoto;
+  return state.photoReducers.selectedPhoto;
 };

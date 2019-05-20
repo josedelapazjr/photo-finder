@@ -3,7 +3,7 @@ const defaultSate = {
   selectedPhoto: null,
   isLoading: false,
 }
-export default function testReducers(state=defaultSate,action) {
+export default function photoReducers(state=defaultSate,action) {
     switch(action.type) {
         case 'FETCH_PHOTOS': {
           return {
